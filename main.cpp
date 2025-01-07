@@ -16,11 +16,14 @@ int main()
 	Lexer lexer(sourceCode);
 	LexerResult result = lexer.tokenize();
 	std::deque<Token> tokens = result.tokens;
-	std::string error = result.error;
+	std::vector<std::string> errors = result.errors;
 
-	if (!error.empty())
+	if (!errors.empty())
 	{
-		std::cout << error << std::endl;
+		for (std::string error : errors)
+		{
+			std::cout << error << std::endl;
+		}
 		return 1;
 	}
 
@@ -32,7 +35,7 @@ int main()
 	Parser parser(tokens);
 	ParserResult parserResult = parser.parse();
 	Node *ast = parserResult.node;
-	std::vector<std::string> errors = parserResult.errors;
+	errors = parserResult.errors;
 
 	if (!errors.empty())
 	{

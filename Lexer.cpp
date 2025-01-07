@@ -2,220 +2,139 @@
 
 LexerResult Lexer::tokenize()
 {
-	std::deque<Token> tokens;
-	std::string error = "";
-	std::string name = "";
-	std::string number = "";
-	bool parsingNumber = false;
-	bool parsingComment = false;
-	int line = 1;
-	int column = 1;
-
-	for (char c : this->sourceCode)
+	while (!this->sourceCode.empty())
 	{
-		if (parsingComment)
-		{
-			if (c == '#')
-			{
-				parsingComment = false;
-			}
-			continue;
-		}
-
-		if (!std::isalnum(c) && c != '.')
-		{
-			if (!name.empty())
-			{
-				if (name == "int" || name == "float")
-				{
-					tokens.push_back(Token(line, column, TokenType::Keyword, name));
-				}
-				else
-				{
-					tokens.push_back(Token(line, column, TokenType::Identifier, name));
-				}
-				name = "";
-			}
-
-			if (!number.empty())
-			{
-				if (number.find('.') != std::string::npos)
-				{ // if contains '.' then it is a float
-					tokens.push_back(Token(line, column, TokenType::Float, number));
-				}
-				else
-				{
-					tokens.push_back(Token(line, column, TokenType::Integer, number));
-				}
-				number = "";
-				parsingNumber = false;
-			}
-		}
+		char c = this->peek();
 
 		switch (c)
 		{
-		case '\t':
 		case ' ':
-			continue;
+		case '\t':
 		case '\n':
 		case '\r':
-			line++;
-			column = 1;
-			break;
-		case '#':
-			parsingComment = true;
+			this->eat();
 			break;
 		case '+':
 		case '-':
 		case '*':
 		case '/':
 		case '%':
-			tokens.push_back(Token(line, column, TokenType::BinaryOperator, std::string(1, c)));
+			this->tokens.push_back(Token(this->line, this->column, TokenType::BinaryOperator, std::string(1, this->eat())));
 			break;
 		case '(':
-			tokens.push_back(Token(line, column, TokenType::LeftParenthesis, "("));
+			this->tokens.push_back(Token(this->line, this->column, TokenType::LeftParenthesis, "("));
 			break;
 		case ')':
-			tokens.push_back(Token(line, column, TokenType::RightParenthesis, ")"));
-			break;
-		case '=':
-			tokens.push_back(Token(line, column, TokenType::Assignment, "="));
-			break;
-		case ',':
-			tokens.push_back(Token(line, column, TokenType::Comma, ","));
-			break;
-		case ':':
-			tokens.push_back(Token(line, column, TokenType::Colon, ":"));
-			break;
-		case ';':
-			tokens.push_back(Token(line, column, TokenType::Semicolon, ";"));
-			break;
-		case '{':
-			tokens.push_back(Token(line, column, TokenType::LeftBrace, "{"));
-			break;
-		case '}':
-			tokens.push_back(Token(line, column, TokenType::RightBrace, "}"));
+			this->tokens.push_back(Token(this->line, this->column, TokenType::RightParenthesis, ")"));
 			break;
 		case '[':
-			tokens.push_back(Token(line, column, TokenType::LeftBracket, "["));
+			this->tokens.push_back(Token(this->line, this->column, TokenType::LeftBracket, "["));
 			break;
 		case ']':
-			tokens.push_back(Token(line, column, TokenType::RightBracket, "]"));
+			this->tokens.push_back(Token(this->line, this->column, TokenType::RightBracket, "]"));
 			break;
-		case 'a':
-		case 'b':
-		case 'c':
-		case 'd':
-		case 'e':
-		case 'f':
-		case 'g':
-		case 'h':
-		case 'i':
-		case 'j':
-		case 'k':
-		case 'l':
-		case 'm':
-		case 'n':
-		case 'o':
-		case 'p':
-		case 'q':
-		case 'r':
-		case 's':
-		case 't':
-		case 'u':
-		case 'v':
-		case 'w':
-		case 'x':
-		case 'y':
-		case 'z':
-		case 'A':
-		case 'B':
-		case 'C':
-		case 'D':
-		case 'E':
-		case 'F':
-		case 'G':
-		case 'H':
-		case 'I':
-		case 'J':
-		case 'K':
-		case 'L':
-		case 'M':
-		case 'N':
-		case 'O':
-		case 'P':
-		case 'Q':
-		case 'R':
-		case 'S':
-		case 'T':
-		case 'U':
-		case 'V':
-		case 'W':
-		case 'X':
-		case 'Y':
-		case 'Z':
-		case '_':
-			name += c;
-			continue;
-		case '0':
-		case '1':
-		case '2':
-		case '3':
-		case '4':
-		case '5':
-		case '6':
-		case '7':
-		case '8':
-		case '9':
-			number += c;
-			parsingNumber = true;
-			continue;
-		case '.':
-			if (parsingNumber)
+		case '{':
+			this->tokens.push_back(Token(this->line, this->column, TokenType::LeftBrace, "{"));
+			break;
+		case '}':
+			this->tokens.push_back(Token(this->line, this->column, TokenType::RightBrace, "}"));
+			break;
+		default:
+			if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_')
 			{
-				if (number.find('.') != std::string::npos)
-				{ // number contains '.'
-					return {tokens, "Invalid number"};
-				}
-
-				number += c;
-				continue;
+				this->processNames();
+			}
+			else if (c >= '0' && c <= '9')
+			{
+				this->processNumbers();
 			}
 			else
 			{
-				tokens.push_back(Token(line, column, TokenType::Dot, "."));
+				this->errors.push_back(std::string("Syntax Error: Unknown"));
 			}
+		}
+	}
+
+	this->tokens.push_back(Token(this->line, this->column, TokenType::Eof, ""));
+
+	return {this->tokens, this->errors};
+}
+
+char Lexer::peek()
+{
+	return this->sourceCode[0];
+}
+
+char Lexer::eat()
+{
+	char c = this->peek();
+	this->sourceCode.erase(0, 1);
+	return c;
+}
+
+void Lexer::processNames()
+{
+	std::string name = "";
+
+	while (!this->sourceCode.empty())
+	{
+		char character = this->peek();
+		if ((character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z') || character == '_')
+		{
+			name += character;
+		}
+		else
+		{
 			break;
-		default:
-			return {tokens, "Invalid character"};
 		}
+		this->eat();
 	}
 
-	if (!name.empty())
+	if (name == "int" || name == "float")
 	{
-		if (name == "int" || name == "float")
+		this->tokens.push_back(Token(this->line, this->column, TokenType::Keyword, name));
+	}
+	else
+	{
+		this->tokens.push_back(Token(this->line, this->column, TokenType::Identifier, name));
+	}
+}
+
+void Lexer::processNumbers()
+{
+	std::string number = "";
+	bool decimal = false;
+
+	while (!this->sourceCode.empty())
+	{
+		char character = this->peek();
+
+		if (character >= '0' && character <= '9')
 		{
-			tokens.push_back(Token(line, column, TokenType::Keyword, name));
+			number += character;
+		}
+		else if (character == '.')
+		{
+			if (decimal)
+			{
+				this->errors.push_back(std::string("Syntax Error: Found two '.', numbers can only contain one decimal point."));
+			}
+			number += character;
+			decimal = true;
 		}
 		else
 		{
-			tokens.push_back(Token(line, column, TokenType::Identifier, name));
+			break;
 		}
+		this->eat();
 	}
 
-	if (!number.empty())
+	if (decimal)
 	{
-		if (number.find('.') != std::string::npos)
-		{ // if contains '.' then it is a float
-			tokens.push_back(Token(line, column, TokenType::Float, number));
-		}
-		else
-		{
-			tokens.push_back(Token(line, column, TokenType::Integer, number));
-		}
+		this->tokens.push_back(Token(this->line, this->column, TokenType::Float, number));
 	}
-
-	tokens.push_back(Token(line, column, TokenType::Eof, ""));
-
-	return {tokens, error};
+	else
+	{
+		this->tokens.push_back(Token(this->line, this->column, TokenType::Integer, number));
+	}
 }
