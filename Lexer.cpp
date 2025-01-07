@@ -69,6 +69,7 @@ LexerResult Lexer::tokenize()
 		case '-':
 		case '*':
 		case '/':
+		case '%':
 			tokens.push_back(Token(line, column, TokenType::BinaryOperator, std::string(1, c)));
 			break;
 		case '(':

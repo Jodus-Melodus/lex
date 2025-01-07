@@ -10,7 +10,7 @@
 
 int main()
 {
-	std::string sourceCode = "5 + 3 /25 * 2.4";
+	std::string sourceCode = "5 + 3 /25 * 2.4 - 325.23 + 24 % 2";
 	std::cout << sourceCode << std::endl;
 
 	Lexer lexer(sourceCode);

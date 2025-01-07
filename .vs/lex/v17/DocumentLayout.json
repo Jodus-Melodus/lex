@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Parser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Parser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Interpreter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,16 +19,8 @@
       "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Token.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Token.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Parser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Parser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 255,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,56 +38,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-05T13:35:36.782Z"
+              "WhenOpened": "2025-01-05T13:35:36.782Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Interpreter.cpp",
               "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp",
               "RelativeDocumentMoniker": "Interpreter.cpp",
               "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp",
               "RelativeToolTip": "Interpreter.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAB4AAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-07T07:40:06.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Parser.cpp",
               "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Parser.cpp",
               "RelativeDocumentMoniker": "Parser.cpp",
               "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Parser.cpp",
               "RelativeToolTip": "Parser.cpp",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAAHAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-05T19:51:40.546Z"
+              "WhenOpened": "2025-01-05T19:51:40.546Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Lexer.cpp",
               "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp",
               "RelativeDocumentMoniker": "Lexer.cpp",
               "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp",
               "RelativeToolTip": "Lexer.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAqwM0AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-07T06:42:56.994Z"
+              "WhenOpened": "2025-01-07T06:42:56.994Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Token.cpp",
               "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Token.cpp",
               "RelativeDocumentMoniker": "Token.cpp",
