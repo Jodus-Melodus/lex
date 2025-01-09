@@ -53,7 +53,7 @@ LexerResult Lexer::tokenize()
 			}
 			else
 			{
-				this->errors.push_back(std::string("Syntax Error: Unknown character"));
+				this->errors.push_back(std::string("Syntax Error: Unknown character: ") + this->eat());
 			}
 		}
 	}

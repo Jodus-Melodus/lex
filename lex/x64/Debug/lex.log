@@ -1,2 +1,3 @@
 ﻿  main.cpp
+C:\Users\Philip\Documents\programming\projects\lex\main.cpp(30,1): warning C4715: 'readFromFile': not all control paths return a value
   lex.vcxproj -> C:\Users\Philip\Documents\programming\projects\lex\x64\Debug\lex.exe

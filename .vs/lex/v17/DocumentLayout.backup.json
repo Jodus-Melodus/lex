@@ -3,36 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Token.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Token.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Lexer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Node.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Node.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Interpreter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\RuntimeValue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:RuntimeValue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Parser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{722CC459-4C5B-4FF0-95C0-6D10C4A1197A}|lex.vcxproj|solutionrelative:Parser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -56,94 +32,22 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwEsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-05T13:35:36.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Parser.cpp",
-              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Parser.cpp",
-              "RelativeDocumentMoniker": "Parser.cpp",
-              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Parser.cpp",
-              "RelativeToolTip": "Parser.cpp",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAkwIUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-05T19:51:40.546Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Lexer.cpp",
               "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp",
               "RelativeDocumentMoniker": "Lexer.cpp",
               "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp",
               "RelativeToolTip": "Lexer.cpp",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAAAJcAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-09T16:00:54.6Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Lexer.h",
-              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.h",
-              "RelativeDocumentMoniker": "Lexer.h",
-              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.h",
-              "RelativeToolTip": "Lexer.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-09T16:01:34.969Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Node.h",
-              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Node.h",
-              "RelativeDocumentMoniker": "Node.h",
-              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Node.h",
-              "RelativeToolTip": "Node.h",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAAGEAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-09T16:07:19.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RuntimeValue.h",
-              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\RuntimeValue.h",
-              "RelativeDocumentMoniker": "RuntimeValue.h",
-              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\RuntimeValue.h",
-              "RelativeToolTip": "RuntimeValue.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-09T18:12:00.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Interpreter.cpp",
-              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp",
-              "RelativeDocumentMoniker": "Interpreter.cpp",
-              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp",
-              "RelativeToolTip": "Interpreter.cpp",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAIMAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-09T18:12:05.998Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Token.cpp",
-              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Token.cpp",
-              "RelativeDocumentMoniker": "Token.cpp",
-              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Token.cpp",
-              "RelativeToolTip": "Token.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-09T18:26:43.302Z",
+              "WhenOpened": "2025-01-09T16:00:54.6Z",
               "EditorCaption": ""
             }
           ]

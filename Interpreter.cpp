@@ -31,6 +31,21 @@ RuntimeValue *Interpreter::interpretBinaryExpression(BinaryExpression *node)
 				return new FloatValue(f1->value + static_cast<float>(i2->value));
 			}
 		}
+		else if (auto s1 = dynamic_cast<StringValue*>(left))
+		{
+			if (auto s2 = dynamic_cast<StringValue*>(right))
+			{
+				return new StringValue(s1->value + s2->value);
+			}
+			else if (auto i2 = dynamic_cast<IntegerValue*>(right))
+			{
+				return new StringValue(s1->value + std::to_string(i2->value));
+			}
+			else if (auto f2 = dynamic_cast<FloatValue*>(right))
+			{
+				return new StringValue(s1->value + std::to_string(f2->value));
+			}
+		}
 		break;
 	case '-':
 		if (auto i1 = dynamic_cast<IntegerValue *>(left))
