@@ -18,12 +18,12 @@ public:
     Scope(std::deque<Node *> body) : body(body) {}
     std::string toString() override
     {
-        std::string result = "{\n";
+        std::string result = "{ \"type\" : \"scope\", \"body\" : [";
         for (Node *node : body)
         {
-            result += node->toString() + "\n";
+            result += node->toString() + ", ";
         }
-        result += "}";
+        result += "]}";
         return result;
     }
     ~Scope() {}
@@ -36,7 +36,9 @@ public:
     Node *right;
     char op;
     BinaryExpression(Node *left, Node *right, char op) : left(left), right(right), op(op) {}
-    std::string toString() { return "BinaryExpression(" + left->toString() + " " + op + " " + right->toString() + ")"; }
+    std::string toString() override {
+        return "{ \"type\" : \"binary expression\", \"left\" : " + left->toString() + ", \"operand\" : \"" + op + "\", \"right\" : " + right->toString() + " }";
+    }
     ~BinaryExpression() {}
 };
 
@@ -47,7 +49,7 @@ public:
     FloatLiteral(float value) : value(value) {}
     std::string toString() override
     {
-        return std::to_string(value);
+        return "{ \"type\" : \"float literal\", \"value\" : " + std::to_string(value) +" }";
     }
     ~FloatLiteral() {}
 };
@@ -59,7 +61,7 @@ public:
     IdentifierLiteral(std::string value) : value(value) {}
     std::string toString() override
     {
-        return value;
+        return "{ \"type\" : \"identifier literal\", \"value\" : \"" + value + "\" }";
     }
     ~IdentifierLiteral() {}
 };
@@ -71,7 +73,7 @@ public:
     IntegerLiteral(int value) : value(value) {}
     std::string toString() override
     {
-        return std::to_string(value);
+        return "{ \"type\" : \"integer literal\", \"value\" : " + std::to_string(value) +" }";
     }
     ~IntegerLiteral() {}
 };
@@ -80,7 +82,7 @@ class NullLiteral : public Node
 {
 public:
     NullLiteral() {};
-    std::string toString() { return std::string(""); };
+    std::string toString() { return "{ \"type\" : \"null literal\"}"; };
     ~NullLiteral() {};
 };
 
@@ -91,7 +93,8 @@ public:
     StringLiteral(std::string value) : value(value) {}
     std::string toString() override
     {
-        return value;
+        return "{ \"type\" : \"string literal\", \"value\" : \"" + value + "\" }";
     }
     ~StringLiteral() {}
 };
+

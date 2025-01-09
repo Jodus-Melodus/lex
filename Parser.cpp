@@ -125,6 +125,8 @@ ParserResult Parser::parsePrimaryExpression()
 		return {new FloatLiteral(std::stof(token->value)), {}};
 	case TokenType::Identifier:
 		return {new IdentifierLiteral(token->value), {}};
+	case TokenType::String:
+		return { new StringLiteral(token->value), {} };
 	default:
 		return {new NullLiteral(), {std::string("Unknown token: " + token->toString())}};
 	}

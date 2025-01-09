@@ -39,6 +39,9 @@ LexerResult Lexer::tokenize()
 		case '}':
 			this->tokens.push_back(Token(this->line, this->column, TokenType::RightBrace, "}"));
 			break;
+		case '"':
+			this->processStrings();
+			break;
 		default:
 			if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_')
 			{
@@ -50,7 +53,7 @@ LexerResult Lexer::tokenize()
 			}
 			else
 			{
-				this->errors.push_back(std::string("Syntax Error: Unknown"));
+				this->errors.push_back(std::string("Syntax Error: Unknown character"));
 			}
 		}
 	}
@@ -137,4 +140,18 @@ void Lexer::processNumbers()
 	{
 		this->tokens.push_back(Token(this->line, this->column, TokenType::Integer, number));
 	}
+}
+
+void Lexer::processStrings()
+{
+	this->eat();
+	std::string value = "";
+
+	while (this->peek() != '"')
+	{
+		value += this->eat();
+	}
+
+	this->eat();
+	this->tokens.push_back(Token(this->line, this->column, TokenType::String, value));
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <deque>
 #include <vector>
 #include "Token.h"
@@ -8,10 +9,24 @@
 #include "Lexer.h"
 #include "Interpreter.h"
 
+void writeToFile(std::string path, std::string contents)
+{
+	std::ofstream file(path);
+
+	if (file.is_open())
+	{
+		file << contents;
+		file.close();
+	}
+	else
+	{
+		std::cerr << "Failed to open file: " << path;
+	}
+}
+
 int main()
 {
-	std::string sourceCode = "5 + 3 /25 * 2.4 - 325.23 + 24 % 2";
-	std::cout << sourceCode << std::endl;
+	std::string sourceCode = "3 + 5 / 4 * 2 % 3 - 2";
 
 	Lexer lexer(sourceCode);
 	LexerResult result = lexer.tokenize();
@@ -25,11 +40,6 @@ int main()
 			std::cout << error << std::endl;
 		}
 		return 1;
-	}
-
-	for (Token token : tokens)
-	{
-		std::cout << token.toString() << '\n';
 	}
 
 	Parser parser(tokens);
@@ -46,13 +56,10 @@ int main()
 		return 1;
 	}
 
-	for (Node *node : static_cast<Scope *>(ast)->body)
-	{
-		std::cout << node->toString() << std::endl;
-	}
+	writeToFile("ast.json", ast->toString());
 
 	Interpreter interpreter(ast);
-	RuntimeValue* res = interpreter.interpret();
+	RuntimeValue *res = interpreter.interpret();
 
 	std::cout << res->toString() << std::endl;
 

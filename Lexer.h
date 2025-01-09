@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 #include <deque>
 #include <vector>
 #include "Token.h"
@@ -27,4 +28,5 @@ private:
 	char eat();
 	void processNames();
 	void processNumbers();
+	void processStrings();
 };

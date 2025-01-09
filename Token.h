@@ -6,6 +6,7 @@ enum TokenType
 	BinaryOperator,
 	Integer,
 	Float,
+	String,
 	LeftParenthesis,
 	RightParenthesis,
 	Identifier,
