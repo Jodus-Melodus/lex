@@ -1,1 +1,17 @@
-{ "type" : "scope", "body" : [{ "type" : "binary expression", "left" : { "type" : "string literal", "value" : "Hello" }, "operand" : "+", "right" : { "type" : "integer literal", "value" : 4 } }, ]}
+{
+    "type": "scope",
+    "body": [
+        {
+            "type": "binary expression",
+            "left": {
+                "type": "string literal",
+                "value": "Hello"
+            },
+            "operand": "+",
+            "right": {
+                "type": "integer literal",
+                "value": 4
+            }
+        }
+    ]
+}

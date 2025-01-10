@@ -19,9 +19,13 @@ public:
     std::string toString() override
     {
         std::string result = "{ \"type\" : \"scope\", \"body\" : [";
-        for (Node *node : body)
+        for (int i = 0; i < body.size(); ++i)
         {
-            result += node->toString() + ", ";
+            result += body[i]->toString();
+            if (i != body.size() - 1)
+            {
+                result += ", ";
+            }
         }
         result += "]}";
         return result;
@@ -36,7 +40,8 @@ public:
     Node *right;
     char op;
     BinaryExpression(Node *left, Node *right, char op) : left(left), right(right), op(op) {}
-    std::string toString() override {
+    std::string toString() override
+    {
         return "{ \"type\" : \"binary expression\", \"left\" : " + left->toString() + ", \"operand\" : \"" + op + "\", \"right\" : " + right->toString() + " }";
     }
     ~BinaryExpression() {}
@@ -49,7 +54,7 @@ public:
     FloatLiteral(float value) : value(value) {}
     std::string toString() override
     {
-        return "{ \"type\" : \"float literal\", \"value\" : " + std::to_string(value) +" }";
+        return "{ \"type\" : \"float literal\", \"value\" : " + std::to_string(value) + " }";
     }
     ~FloatLiteral() {}
 };
@@ -73,7 +78,7 @@ public:
     IntegerLiteral(int value) : value(value) {}
     std::string toString() override
     {
-        return "{ \"type\" : \"integer literal\", \"value\" : " + std::to_string(value) +" }";
+        return "{ \"type\" : \"integer literal\", \"value\" : " + std::to_string(value) + " }";
     }
     ~IntegerLiteral() {}
 };
@@ -97,4 +102,3 @@ public:
     }
     ~StringLiteral() {}
 };
-
