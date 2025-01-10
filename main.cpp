@@ -22,7 +22,8 @@ std::string readFromFile(std::string path)
 	std::string contents = "";
 	std::string line = "";
 
-	while (std::getline(file, line)) {
+	while (std::getline(file, line))
+	{
 		contents += line + '\n';
 	}
 
@@ -56,10 +57,9 @@ int run(std::string path)
 	}
 
 	Lexer lexer(sourceCode);
-	LexerResult result = lexer.tokenize();
-	std::deque<Token> tokens = result.tokens;
-	std::vector<std::string> errors = result.errors;
-
+	LexerResult lexerResult = lexer.tokenize();
+	std::deque<Token> tokens = lexerResult.tokens;
+	std::vector<std::string> errors = lexerResult.errors;
 
 	if (!errors.empty())
 	{
@@ -72,7 +72,7 @@ int run(std::string path)
 
 	Parser parser(tokens);
 	ParserResult parserResult = parser.parse();
-	Node* ast = parserResult.node;
+	Node *ast = parserResult.node;
 	errors = parserResult.errors;
 
 	if (!errors.empty())
@@ -87,14 +87,20 @@ int run(std::string path)
 	writeToFile("ast.json", ast->toString());
 
 	Interpreter interpreter(ast);
-	RuntimeValue* res = interpreter.interpret();
+	InterpreterResult interpreterResult = interpreter.interpret();
 
-	std::cout << res->toString() << std::endl;
+	if (!interpreterResult.error.empty())
+	{
+		std::cerr << interpreterResult.error << std::endl;
+		return 1;
+	}
+
+	std::cout << interpreterResult.value->toString() << std::endl;
 
 	return 0;
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	switch (argc)
 	{

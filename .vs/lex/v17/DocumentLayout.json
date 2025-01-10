@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lexer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Interpreter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-05T13:35:36.782Z",
               "EditorCaption": ""
@@ -40,14 +40,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Lexer.cpp",
-              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp",
-              "RelativeDocumentMoniker": "Lexer.cpp",
-              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Lexer.cpp",
-              "RelativeToolTip": "Lexer.cpp",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEEAAAASAAAAAAAAAA==",
+              "Title": "Interpreter.cpp",
+              "DocumentMoniker": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp",
+              "RelativeDocumentMoniker": "Interpreter.cpp",
+              "ToolTip": "C:\\Users\\Philip\\Documents\\programming\\projects\\lex\\Interpreter.cpp",
+              "RelativeToolTip": "Interpreter.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-09T16:00:54.6Z",
+              "WhenOpened": "2025-01-10T09:24:42.667Z",
               "EditorCaption": ""
             }
           ]

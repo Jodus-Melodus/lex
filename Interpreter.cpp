@@ -1,10 +1,22 @@
 #include "Interpreter.h"
 
-RuntimeValue *Interpreter::interpretBinaryExpression(BinaryExpression *node)
+InterpreterResult Interpreter::interpretBinaryExpression(BinaryExpression *node)
 {
-	RuntimeValue *left = this->interpretNode(node->left);
+	InterpreterResult leftResult = this->interpretNode(node->left);
+	if (!leftResult.error.empty())
+	{
+		return leftResult;
+	}
+	RuntimeValue *left = leftResult.value;
+
+	InterpreterResult rightResult = this->interpretNode(node->right);
+	if (!rightResult.error.empty())
+	{
+		return rightResult;
+	}
+	RuntimeValue *right = rightResult.value;
+
 	char operand = node->op;
-	RuntimeValue *right = this->interpretNode(node->right);
 
 	switch (operand)
 	{
@@ -13,153 +25,203 @@ RuntimeValue *Interpreter::interpretBinaryExpression(BinaryExpression *node)
 		{
 			if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new IntegerValue(i1->value + i2->value);
+				return {new IntegerValue(i1->value + i2->value), std::string("")};
 			}
 			else if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(static_cast<float>(i1->value) + f2->value);
+				return {new FloatValue(static_cast<float>(i1->value) + f2->value), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
 		else if (auto f1 = dynamic_cast<FloatValue *>(left))
 		{
 			if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(f1->value + f2->value);
+				return {new FloatValue(f1->value + f2->value), std::string("")};
 			}
 			else if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new FloatValue(f1->value + static_cast<float>(i2->value));
+				return {new FloatValue(f1->value + static_cast<float>(i2->value)), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
-		else if (auto s1 = dynamic_cast<StringValue*>(left))
+		else if (auto s1 = dynamic_cast<StringValue *>(left))
 		{
-			if (auto s2 = dynamic_cast<StringValue*>(right))
+			if (auto s2 = dynamic_cast<StringValue *>(right))
 			{
-				return new StringValue(s1->value + s2->value);
+				return {new StringValue(s1->value + s2->value), std::string("")};
 			}
-			else if (auto i2 = dynamic_cast<IntegerValue*>(right))
+			else
 			{
-				return new StringValue(s1->value + std::to_string(i2->value));
-			}
-			else if (auto f2 = dynamic_cast<FloatValue*>(right))
-			{
-				return new StringValue(s1->value + std::to_string(f2->value));
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
-		break;
+		else
+		{
+			return {new NullValue(), std::string("Unsupported operand for types")};
+		}
 	case '-':
 		if (auto i1 = dynamic_cast<IntegerValue *>(left))
 		{
 			if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new IntegerValue(i1->value - i2->value);
+				return {new IntegerValue(i1->value - i2->value), std::string("")};
 			}
 			else if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(static_cast<float>(i1->value) - f2->value);
+				return {new FloatValue(static_cast<float>(i1->value) - f2->value), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
 		else if (auto f1 = dynamic_cast<FloatValue *>(left))
 		{
 			if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(f1->value - f2->value);
+				return {new FloatValue(f1->value - f2->value), std::string("")};
 			}
 			else if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new FloatValue(f1->value - static_cast<float>(i2->value));
+				return {new FloatValue(f1->value - static_cast<float>(i2->value)), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
-		break;
+		else
+		{
+			return {new NullValue(), std::string("Unsupported operand for types")};
+		}
 	case '*':
 		if (auto i1 = dynamic_cast<IntegerValue *>(left))
 		{
 			if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new IntegerValue(i1->value * i2->value);
+				return {new IntegerValue(i1->value * i2->value), std::string("")};
 			}
 			else if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(static_cast<float>(i1->value) * f2->value);
+				return {new FloatValue(static_cast<float>(i1->value) * f2->value), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
 		else if (auto f1 = dynamic_cast<FloatValue *>(left))
 		{
 			if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(f1->value * f2->value);
+				return {new FloatValue(f1->value * f2->value), std::string("")};
 			}
 			else if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new FloatValue(f1->value * static_cast<float>(i2->value));
+				return {new FloatValue(f1->value * static_cast<float>(i2->value)), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
-		break;
+		else
+		{
+			return {new NullValue(), std::string("Unsupported operand for types")};
+		}
 	case '/':
 		if (auto i1 = dynamic_cast<IntegerValue *>(left))
 		{
 			if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new FloatValue(static_cast<float>(i1->value) / static_cast<float>(i2->value));
+				return {new FloatValue(static_cast<float>(i1->value) / static_cast<float>(i2->value)), std::string("")};
 			}
 			else if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(static_cast<float>(i1->value) / static_cast<float>(f2->value));
+				return {new FloatValue(static_cast<float>(i1->value) / static_cast<float>(f2->value)), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
 		else if (auto f1 = dynamic_cast<FloatValue *>(left))
 		{
 			if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new FloatValue(f1->value / static_cast<float>(i2->value));
+				return {new FloatValue(f1->value / static_cast<float>(i2->value)), std::string("")};
 			}
 			else if (auto f2 = dynamic_cast<FloatValue *>(right))
 			{
-				return new FloatValue(f1->value / f2->value);
+				return {new FloatValue(f1->value / f2->value), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
-		break;
+		else
+		{
+			return {new NullValue(), std::string("Unsupported operand for types")};
+		}
 	case '%':
 		if (auto i1 = dynamic_cast<IntegerValue *>(left))
 		{
 			if (auto i2 = dynamic_cast<IntegerValue *>(right))
 			{
-				return new IntegerValue(i1->value % i2->value);
+				return {new IntegerValue(i1->value % i2->value), std::string("")};
+			}
+			else
+			{
+				return {new NullValue(), std::string("Unsupported operand for types")};
 			}
 		}
-		break;
+		else
+		{
+			return {new NullValue(), std::string("Unsupported operand for types")};
+		}
 	default:
-		break;
+		return {new NullValue(), std::string("Unknown operand: '") + operand + '\''};
 	}
-
-	return new NullValue();
 }
 
-RuntimeValue *Interpreter::interpret()
+InterpreterResult Interpreter::interpret()
 {
-	RuntimeValue *result = new NullValue();
+	InterpreterResult result;
 
 	for (Node *node : static_cast<Scope *>(this->ast)->body)
 	{
 		result = this->interpretNode(node);
+
+		if (!result.error.empty())
+		{
+			return result;
+		}
 	}
 
 	return result;
 }
 
-RuntimeValue *Interpreter::interpretNode(Node *node)
+InterpreterResult Interpreter::interpretNode(Node *node)
 {
 	if (auto i = dynamic_cast<IntegerLiteral *>(node))
 	{
-		return new IntegerValue(i->value);
+		return {new IntegerValue(i->value), std::string("")};
 	}
 	else if (auto f = dynamic_cast<FloatLiteral *>(node))
 	{
-		return new FloatValue(f->value);
+		return {new FloatValue(f->value), std::string("")};
 	}
 	else if (auto s = dynamic_cast<StringLiteral *>(node))
 	{
-		return new StringValue(s->value);
+		return {new StringValue(s->value), std::string("")};
 	}
 	else if (auto be = dynamic_cast<BinaryExpression *>(node))
 	{
@@ -167,6 +229,6 @@ RuntimeValue *Interpreter::interpretNode(Node *node)
 	}
 	else
 	{
-		return new NullValue();
+		return {new NullValue(), std::string("Invalid node \"") + node->toString() + std::string("\" found")};
 	}
 }
