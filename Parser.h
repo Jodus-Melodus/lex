@@ -2,11 +2,12 @@
 #include <vector>
 #include "Token.h"
 #include "Node.h"
+#include "Error.h"
 
 struct ParserResult
 {
 	Node *node;
-	std::vector<std::string> errors;
+	std::vector<Error> errors;
 };
 
 class Parser
@@ -18,6 +19,8 @@ public:
 
 private:
 	std::deque<Token> tokens;
+	std::deque<Node *> nodes;
+	std::vector<Error> errors;
 	Token *peek();
 	Token *eat();
 	ParserResult parseStatement();

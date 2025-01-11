@@ -31,6 +31,6 @@ public:
 	int line;
 	int column;
 	Token(int line, int column, TokenType type, std::string value) : column(column), line(line), type(type), value(value) {};
-	std::string toString();
+	std::string toString() const;
 	~Token() {};
 };

@@ -19,7 +19,7 @@ public:
     std::string toString() override
     {
         std::string result = "{ \"type\" : \"scope\", \"body\" : [";
-        for (int i = 0; i < body.size(); ++i)
+        for (size_t i = 0; i < body.size(); ++i)
         {
             result += body[i]->toString();
             if (i != body.size() - 1)

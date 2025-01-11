@@ -1,7 +1,13 @@
-﻿  Interpreter.cpp
+﻿  Error.cpp
+C:\Users\Philip\Documents\programming\projects\lex\Error.cpp(11,15): warning C4305: 'argument': truncation from 'int' to '_Elem'
+C:\Users\Philip\Documents\programming\projects\lex\Error.cpp(11,15): warning C4305:         with
+C:\Users\Philip\Documents\programming\projects\lex\Error.cpp(11,15): warning C4305:         [
+C:\Users\Philip\Documents\programming\projects\lex\Error.cpp(11,15): warning C4305:             _Elem=char
+C:\Users\Philip\Documents\programming\projects\lex\Error.cpp(11,15): warning C4305:         ]
+C:\Users\Philip\Documents\programming\projects\lex\Error.cpp(11,15): warning C4309: 'argument': truncation of constant value
+  Interpreter.cpp
   Lexer.cpp
   main.cpp
   Parser.cpp
-  Token.cpp
   Generating Code...
   lex.vcxproj -> C:\Users\Philip\Documents\programming\projects\lex\x64\Debug\lex.exe

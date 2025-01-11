@@ -9,7 +9,7 @@
 #include "Lexer.h"
 #include "Interpreter.h"
 
-std::string readFromFile(std::string path)
+static std::string readFromFile(std::string path)
 {
 	std::ifstream file(path);
 
@@ -31,7 +31,7 @@ std::string readFromFile(std::string path)
 	return contents;
 }
 
-void writeToFile(std::string path, std::string contents)
+static void writeToFile(std::string path, std::string contents)
 {
 	std::ofstream file(path);
 
@@ -46,7 +46,7 @@ void writeToFile(std::string path, std::string contents)
 	}
 }
 
-int run(std::string path)
+static int run(std::string path)
 {
 	std::string sourceCode = readFromFile(path);
 
@@ -59,13 +59,13 @@ int run(std::string path)
 	Lexer lexer(sourceCode);
 	LexerResult lexerResult = lexer.tokenize();
 	std::deque<Token> tokens = lexerResult.tokens;
-	std::vector<std::string> errors = lexerResult.errors;
+	std::vector<Error> errors = lexerResult.errors;
 
 	if (!errors.empty())
 	{
-		for (std::string error : errors)
+		for (Error error : errors)
 		{
-			std::cerr << error << std::endl;
+			std::cerr << error.toString() << std::endl;
 		}
 		return 1;
 	}
@@ -77,9 +77,9 @@ int run(std::string path)
 
 	if (!errors.empty())
 	{
-		for (std::string error : errors)
+		for (Error error : errors)
 		{
-			std::cerr << error << std::endl;
+			std::cerr << error.toString() << std::endl;
 		}
 		return 1;
 	}
@@ -88,14 +88,16 @@ int run(std::string path)
 
 	Interpreter interpreter(ast);
 	InterpreterResult interpreterResult = interpreter.interpret();
+	RuntimeValue *res = interpreterResult.value;
+	Error err = interpreterResult.error;
 
-	if (!interpreterResult.error.empty())
+	if (!err.isEmpty())
 	{
-		std::cerr << interpreterResult.error << std::endl;
+		std::cerr << err.toString() << std::endl;
 		return 1;
 	}
 
-	std::cout << interpreterResult.value->toString() << std::endl;
+	std::cout << res->toString() << std::endl;
 
 	return 0;
 }

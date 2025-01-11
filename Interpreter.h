@@ -4,11 +4,12 @@
 #include <string>
 #include "Node.h"
 #include "RuntimeValue.h"
+#include "Error.h"
 
 struct InterpreterResult
 {
 	RuntimeValue *value;
-	std::string error;
+	Error error;
 };
 
 class Interpreter

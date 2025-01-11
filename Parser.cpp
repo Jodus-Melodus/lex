@@ -23,18 +23,15 @@ Token *Parser::eat()
 
 ParserResult Parser::parse()
 {
-	std::deque<Node *> nodes;
-	std::vector<std::string> errors;
-
 	while (this->peek()->type != TokenType::Eof)
 	{
 		ParserResult result = this->parseStatement();
-		nodes.push_back(result.node);
-		errors.insert(errors.end(), result.errors.begin(), result.errors.end());
+		this->nodes.push_back(result.node);
+		this->errors.insert(this->errors.end(), result.errors.begin(), result.errors.end());
 	}
 
 	this->eat();
-	return {new Scope(nodes), errors};
+	return {new Scope(this->nodes), this->errors};
 }
 
 ParserResult Parser::parseStatement()
@@ -126,8 +123,8 @@ ParserResult Parser::parsePrimaryExpression()
 	case TokenType::Identifier:
 		return {new IdentifierLiteral(token->value), {}};
 	case TokenType::String:
-		return { new StringLiteral(token->value), {} };
+		return {new StringLiteral(token->value), {}};
 	default:
-		return {new NullLiteral(), {std::string("Unknown token: " + token->toString())}};
+		return {new NullLiteral(), {Error(std::string("Unknown token: ") + token->toString(), token->line, token->column)}};
 	}
 }

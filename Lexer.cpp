@@ -53,7 +53,7 @@ LexerResult Lexer::tokenize()
 			}
 			else
 			{
-				this->errors.push_back(std::string("Syntax Error: Unknown character: ") + this->eat());
+				this->errors.push_back(Error(std::string("Unknown character found"), this->line, this->column));
 			}
 		}
 	}
@@ -93,7 +93,7 @@ void Lexer::processNames()
 		this->eat();
 	}
 
-	if (name == "int" || name == "float")
+	if (std::find(std::begin(KEYWORDS), std::end(KEYWORDS), name) != std::end(KEYWORDS))
 	{
 		this->tokens.push_back(Token(this->line, this->column, TokenType::Keyword, name));
 	}
@@ -120,7 +120,7 @@ void Lexer::processNumbers()
 		{
 			if (decimal)
 			{
-				this->errors.push_back(std::string("Syntax Error: Found two '.', numbers can only contain one decimal point."));
+				this->errors.push_back(Error(std::string("Syntax Error: Found two '.', numbers can only contain one decimal point."), this->line, this->column));
 			}
 			number += character;
 			decimal = true;

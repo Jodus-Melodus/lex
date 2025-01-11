@@ -4,11 +4,14 @@
 #include <deque>
 #include <vector>
 #include "Token.h"
+#include "Error.h"
+
+const std::string KEYWORDS[] = {std::string("let")};
 
 struct LexerResult
 {
 	std::deque<Token> tokens;
-	std::vector<std::string> errors;
+	std::vector<Error> errors;
 };
 
 class Lexer
@@ -21,7 +24,7 @@ public:
 private:
 	std::string sourceCode = "";
 	std::deque<Token> tokens = {};
-	std::vector<std::string> errors = {};
+	std::vector<Error> errors = {};
 	int line = 1;
 	int column = 1;
 	char peek();
